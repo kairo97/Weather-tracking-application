@@ -1,0 +1,28 @@
+*{
+    background-color: aliceblue;
+}
+#header1{
+    display: flex;
+    justify-content: center;
+    background-color: blue;
+    color: white;
+    padding: 10px;
+}
+#search-area{
+    display: flex;
+    flex-direction: column;
+    border:solid black 2px;
+    width: 275px;
+    height: 800px;
+    margin: 20px;
+}
+#search-header{
+    padding-left: 15px;
+}
+#searchbar{
+    margin:5px;
+}
+#search{
+    background-color:rgb(98, 152, 170);
+    width: auto;
+}
