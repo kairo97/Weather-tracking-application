@@ -1,14 +1,21 @@
-var apiUrl = "https://api.openweathermap.org/geo/1.0/direct?q={city name},{state code},{country code}&limit=5&appid=2377ce6170fd23501dbc0eba2329d594"
+var searchForm = document.querySelector('#searchbar');
+
+function handleSearchSubmit(event) {
+  event.preventDefault();
+
+  var searchInputVal = document.querySelector('#searchbar').value;
+  if (!searchInputVal) {
+    console.error('You need a search input value!');
+    return;
+  }
+  var queryString = './search-results.html?q=' + searchInputVal;
+  location.assign(queryString);
+}
+searchForm.addEventListener('click', handleSearchSubmit);
+
 var searchBar = document.querySelector('#searchbar')
 var displayCity = document.querySelector('#city-display')
 var searchBtn = document.querySelector('#search')
-
-function handleSearchResult(event) {
-var searchVal = document.querySelector('#searchbar').value;
-if (!searchVal) {
-console.error('you need a search input')
-return;
-}}
 function getParams() {
 var searchParamsArr = document.location.search.split('&');
 var query = searchParamsArr[0].split('=').pop();
@@ -24,7 +31,18 @@ function printResults(resultObj) {
     var resultBody = document.createElement('div');
     resultBody.classList.add('card-body');
     resultCard.append(resultBody);
+    var titleEl = document.createElement('h3');
+    titleEl.textContent = resultObj.title;
+    var bodyContentEl = document.createElement('p');
+    bodyContentEl.innerHTML = '<strong>Date:</strong>'
 }
+
+function handleSearchResult(event) {
+var searchVal = document.querySelector('#searchbar').value;
+if (!searchVal) {
+console.error('you need a search input')
+return;
+}}
 
 function searchApi(query, format) {
     var weathQueryUrl = "https://api.openweathermap.org/geo/1.0/direct?q=&limit=5&appid=2377ce6170fd23501dbc0eba2329d594"
