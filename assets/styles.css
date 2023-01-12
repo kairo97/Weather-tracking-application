@@ -26,3 +26,11 @@
     background-color:rgb(98, 152, 170);
     width: auto;
 }
+.search-results{
+    display: flex;
+    flex-direction: row;
+    margin-left: 310px;
+    border: solid black 2px;
+    margin-bottom:90%;
+    
+}
