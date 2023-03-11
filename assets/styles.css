@@ -40,7 +40,6 @@
     
 }
 #resultsArea{
-    border: solid black 2px;
     display: flex;
     flex-direction: row;
     height: 200px;
