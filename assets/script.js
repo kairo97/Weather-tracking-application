@@ -71,6 +71,14 @@ function getWeather() {
             humidity: "",
             windSpeed: "",
           };
+          var day5 = {
+            date: "",
+            weather: "",
+            temp: "",
+            humidity: "",
+            windSpeed: "",
+          };
+        
           var today = dayjs();
           var todayFormatted = today.format("MM/DD/YYYY");
           
@@ -110,38 +118,32 @@ function getWeather() {
                 day5.temp = Math.round(1.8 * (data.list[i].main.temp - 273) + 32);
                 day5.humidity = data.list[i].main.humidity;
                 day5.windSpeed = Math.round(data.list[i].wind.speed);
-            } 
-
-
-
-
-          
+            }  printResults(weather)
         };
     });
-
-
-function printResults(weather) {
-    var resultCard = document.createElement("div");
-    resultCard.classList.add("card", "bg-light", "text-dark", "mb-3", "p-3");
-  
-    var resultBody = document.createElement("div");
-    resultBody.classList.add("card-body");
-    resultBody.append(resultCard);
-  
-    var titleEl = document.createElement("h3");
-    titleEl.textContent = weather.city + ", " + weather.state;
-    resultCard.append(titleEl);
-  
-    var bodyContentEl = document.createElement("p");
-    bodyContentEl.innerHTML =
-      "<strong>Date:</strong> " + weather.date + "<br/>" +
-      "<strong>Weather:</strong> " + weather.weatherType + "<br/>" +
-      "<strong>Temperature:</strong> " + weather.temp + " °F<br/>" +
-      "<strong>Humidity:</strong> " + weather.humidity + "%<br/>" +
-      "<strong>Wind Speed:</strong> " + weather.windSpeed + " mph<br/>";
-  
-    resultCard.append(bodyContentEl);
-  
-    resultsArea.innerHTML = "";
-    resultsArea.append(resultBody)
-};
+    function printResults(weather) {
+        console.log(weather)
+        var resultCard = document.createElement("div");
+        resultCard.classList.add("card", "bg-light", "text-dark", "mb-3", "p-3");
+      
+        var resultBody = document.createElement("div");
+        resultBody.classList.add("card-body");
+        resultBody.append(resultCard);
+      
+        var titleEl = document.createElement("h3");
+        titleEl.textContent = weather.city + ", " + weather.state;
+        resultCard.append(titleEl);
+      
+        var bodyContentEl = document.createElement("p");
+        bodyContentEl.innerHTML =
+          "<strong>Date:</strong> " + weather.date + "<br/>" +
+          "<strong>Weather:</strong> " + weather.weatherType + "<br/>" +
+          "<strong>Temperature:</strong> " + weather.temp + " °F<br/>" +
+          "<strong>Humidity:</strong> " + weather.humidity + "%<br/>" +
+          "<strong>Wind Speed:</strong> " + weather.windSpeed + " mph<br/>";
+      
+        resultCard.append(bodyContentEl);
+      
+        resultsArea.innerHTML = "";
+        resultsArea.append(resultBody);
+    }})}
